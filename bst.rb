@@ -31,21 +31,36 @@ class BinarySearchTree
     end
   end
 
+
   def include?(value)
     if head.nil?
       false
+    elsif head == value
+      true
+    elsif value > head && right
+      right.include?(value)
+    elsif value < head && left
+      left.include?(value)
     else
-      if head.nil?
-        false
-      else
-        case head <=> value
-        when 1 then left.include?(value)
-        when -1 then right.include?(value)
-        when 0 then true
-        end
-      end
+      false
     end
   end
+
+  # def include?(value)
+  #   if head.nil?
+  #     false
+  #   else
+  #     if head.nil?
+  #       false
+  #     else
+  #       case head <=> value
+  #       when 1 then left.include?(value)
+  #       when -1 then right.include?(value)
+  #       when 0 then true
+  #       end
+  #     end
+  #   end
+  # end
     # if head == value
     #   true
     # elsif @right == value

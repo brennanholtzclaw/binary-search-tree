@@ -46,30 +46,18 @@ class BinarySearchTree
     end
   end
 
-  # def include?(value)
-  #   if head.nil?
-  #     false
-  #   else
-  #     if head.nil?
-  #       false
-  #     else
-  #       case head <=> value
-  #       when 1 then left.include?(value)
-  #       when -1 then right.include?(value)
-  #       when 0 then true
-  #       end
-  #     end
-  #   end
-  # end
-    # if head == value
-    #   true
-    # elsif @right == value
-    #   true
-    # elsif @left == value
-    #   true
-    # else
-    #   false
-    # end
+  def maximum
+    
+  end
+
+  def minimum
+  end
+
+  def sort
+  end
+
+
+
 end
   #
   # module BinaryTree
@@ -90,6 +78,31 @@ end
   #   head == value || left.include?(value) || right.include?(value)
   # end
 
+
+    # def include?(value)
+    #   if head.nil?
+    #     false
+    #   else
+    #     if head.nil?
+    #       false
+    #     else
+    #       case head <=> value
+    #       when 1 then left.include?(value)
+    #       when -1 then right.include?(value)
+    #       when 0 then true
+    #       end
+    #     end
+    #   end
+    # end
+      # if head == value
+      #   true
+      # elsif @right == value
+      #   true
+      # elsif @left == value
+      #   true
+      # else
+      #   false
+      # end
 
 
 # # State 1:

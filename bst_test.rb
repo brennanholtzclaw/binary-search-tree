@@ -91,7 +91,7 @@ class BinarySearchTreeTest < MiniTest::Test
     tree.insert(5)
     tree.insert(6)
     tree.insert(4)
-    refute tree.include?(13)
+    assert_equal tree.include?(13), false
   end
 end
 

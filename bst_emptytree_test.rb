@@ -1,7 +1,8 @@
 require 'minitest'
 require 'minitest/autorun'
 require 'minitest/pride'
-require './bst'
+require './bst_empty'
+require './emptytree'
 
 class BinarySearchTreeTest < MiniTest::Test
   attr_accessor :tree
@@ -12,13 +13,13 @@ class BinarySearchTreeTest < MiniTest::Test
   # end
 
   # TO DO Push
-  # def test_it_pushes_an_element
-  #   tree = BinarySearchTree.new
-  #   tree.insert(1)
-  #   assert_equal 1, tree.count
-  # end
+  def test_it_inserts_an_element
+    tree = BinarySearchTree.new
+    tree.insert(1)
+    assert_equal 1, tree.head
+  end
 
-  def test_it_insertes_a_bigger_element_than_head_to_the_right
+  def test_it_inserts_a_bigger_element_than_head_to_the_right
     tree = BinarySearchTree.new
     tree.insert(5)
     tree.insert(6)

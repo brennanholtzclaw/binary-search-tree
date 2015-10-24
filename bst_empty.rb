@@ -4,23 +4,22 @@ class BinarySearchTree
   attr_accessor :head, :right, :left
 
   def initialize
-    self.right = EmptyTree.new
-    self.left = EmptyTree.new
+    @head
+    @right = EmptyTree.new
+    @left = EmptyTree.new
   end
 
   def insert(value)
-    if head.EmptyTree.new
+    if head == nil
       self.head = value
     elsif value > head
-      if right.EmptyTree.new
-        tree = BinarySearchTree.new
-        tree.insert(value)
-        self.right = tree
+      if right == EmptyTree.new
+        self.right = value
       else
         right.insert(value)
       end
     else
-      if left.EmptyTree.new
+      if left == EmptyTree.new
         tree = BinarySearchTree.new
         tree.insert(value)
         self.left = tree
@@ -29,6 +28,8 @@ class BinarySearchTree
       end
     end
   end
+
+
 
   def include?(value)
     if head == value

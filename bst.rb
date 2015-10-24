@@ -26,14 +26,23 @@ class BinarySearchTree
   def include?(value)
     if head == value
       true
-    elsif right.include?(value)
+    elsif
+      if right.nil?
+        false
+      else right.include?(value)
+        true
+      end
+    elsif
+      if left.nil?
+        false
+      else left.include?(value)
       true
-    elsif left.include?(value)
-      true
+      end
     else
       false
     end
   end
+end
   #
   # module BinaryTree
   #   class Node
@@ -53,7 +62,7 @@ class BinarySearchTree
   #   head == value || left.include?(value) || right.include?(value)
   # end
 
-end
+
 
 # # State 1:
 # tree 5

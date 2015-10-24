@@ -24,24 +24,30 @@ class BinarySearchTree
   end
 
   def include?(value)
-    if head == value
-      true
-    elsif
-      if right.nil?
-        false
-      else right.include?(value)
-        true
-      end
-    elsif
-      if left.nil?
-        false
-      else left.include?(value)
-      true
-      end
-    else
+    if head.nil?
       false
+    else
+      case head <=> value
+        when 1
+          left.include?(value)
+        when -1
+          right.include?(value)
+        when 0
+          true
+        else
+          false
+      end
     end
   end
+    # if head == value
+    #   true
+    # elsif @right == value
+    #   true
+    # elsif @left == value
+    #   true
+    # else
+    #   false
+    # end
 end
   #
   # module BinaryTree

@@ -93,6 +93,81 @@ class BinarySearchTreeTest < MiniTest::Test
     tree.insert(4)
     assert_equal tree.include?(13), false
   end
+
+  def test_it_rejects_maximum_while_empty
+    tree = BinarySearchTree.new
+    refute tree.maximum
+  end
+
+  def test_it_reports_maximum_with_single_element
+    tree = BinarySearchTree.new
+    tree.insert(1)
+    assert_equal 1, tree.maximum
+  end
+
+  def test_it_reports_maximum_with_two_elements
+    tree = BinarySearchTree.new
+    tree.insert(1)
+    tree.insert(2)
+    assert_equal 2, tree.maximum
+  end
+
+  def test_it_reports_maximum_with_multiple_elements
+    tree = BinarySearchTree.new
+    tree.insert(4)
+    tree.insert(3)
+    tree.insert(5)
+    assert_equal 5, tree.maximum
+  end
+
+  def test_it_reports_maximum_with_multiple_levels
+    tree = BinarySearchTree.new
+    tree.insert(4)
+    tree.insert(3)
+    tree.insert(2)
+    tree.insert(5)
+    tree.insert(1)
+    tree.insert(6)
+    assert_equal 6, tree.maximum
+  end
+
+  def test_it_rejects_minimum_while_empty
+    tree = BinarySearchTree.new
+    refute tree.minimum
+  end
+
+  def test_it_reports_minimum_with_single_element
+    tree = BinarySearchTree.new
+    tree.insert(1)
+    assert_equal 1, tree.minimum
+  end
+
+  def test_it_reports_minimum_with_two_elements
+    tree = BinarySearchTree.new
+    tree.insert(1)
+    tree.insert(2)
+    assert_equal 1, tree.minimum
+  end
+
+  def test_it_reports_minimum_with_multiple_elements
+    tree = BinarySearchTree.new
+    tree.insert(4)
+    tree.insert(3)
+    tree.insert(5)
+    assert_equal 3, tree.minimum
+  end
+
+  def test_it_reports_minimum_with_multiple_levels
+    tree = BinarySearchTree.new
+    tree.insert(4)
+    tree.insert(3)
+    tree.insert(2)
+    tree.insert(5)
+    tree.insert(1)
+    tree.insert(6)
+    assert_equal 1, tree.minimum
+  end
+
 end
 
 #     5 <- include?

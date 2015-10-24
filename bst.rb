@@ -47,11 +47,28 @@ class BinarySearchTree
   end
 
   def maximum
-    
+    if head.nil?
+      false
+    elsif head && right.nil?
+      return head
+    else
+      right.maximum
+    end
   end
 
   def minimum
+    if head.nil?
+      false
+    elsif head && left.nil?
+      return head
+    else
+      left.minimum
+    end
   end
+
+  def depth_of
+  end
+  
 
   def sort
   end

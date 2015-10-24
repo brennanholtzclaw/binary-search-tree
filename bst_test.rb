@@ -34,7 +34,7 @@ class BinarySearchTreeTest < MiniTest::Test
     assert_equal 4, tree.left.head
   end
 
-  def test_it_inserts_three_elements_correctly
+  def test_it_inserts_three_ascending_elements_correctly
     tree = BinarySearchTree.new
     tree.insert(5)
     tree.insert(7)
@@ -42,7 +42,7 @@ class BinarySearchTreeTest < MiniTest::Test
     assert_equal 6, tree.right.left.head
   end
 
-  def test_it_inserts_other_three_elements_correctly
+  def test_it_inserts_other_three_lesser_elements_correctly
     tree = BinarySearchTree.new
     tree.insert(5)
     tree.insert(3)
@@ -50,16 +50,47 @@ class BinarySearchTreeTest < MiniTest::Test
     assert_equal 4, tree.left.right.head
   end
 
-  def test_it_includes_a_value
+  def test_it_includes_single_value
+    tree = BinarySearchTree.new
+    tree.insert(5)
+    assert tree.include?(5)
+  end
+
+  def test_it_does_not_include_when_empty
+    tree = BinarySearchTree.new
+    refute tree.include?(5)
+  end
+
+  def test_it_includes_a_lesser_value
     tree = BinarySearchTree.new
     tree.insert(5)
     tree.insert(3)
+    assert tree.include?(3)
+  end
+
+  def test_it_includes_a_greater_value
+    tree = BinarySearchTree.new
+    tree.insert(5)
+    tree.insert(6)
+    assert tree.include?(6)
+  end
+
+  def test_it_includes_a_second_greater_and_lesser_value
+    tree = BinarySearchTree.new
+    tree.insert(5)
     tree.insert(6)
     tree.insert(7)
-
-    assert tree.include?(5)
-    assert tree.include?(3)
+    tree.insert(4)
+    tree.insert(3)
     assert tree.include?(7)
+    assert tree.include?(3)
+  end
+
+  def test_it_does_not_include_a_value_with_head
+    tree = BinarySearchTree.new
+    tree.insert(5)
+    tree.insert(6)
+    tree.insert(4)
     refute tree.include?(13)
   end
 end

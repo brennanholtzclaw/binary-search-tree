@@ -1,5 +1,13 @@
+require './emptytree'
+
 class BinarySearchTree
   attr_accessor :head, :right, :left
+
+  # def initialize
+  #   @head
+  #   @right = EmptyTree.new
+  #   @left = EmptyTree.new
+  # end
 
   def insert(value)
     if head.nil?
@@ -27,15 +35,14 @@ class BinarySearchTree
     if head.nil?
       false
     else
-      case head <=> value
-        when 1
-          left.include?(value)
-        when -1
-          right.include?(value)
-        when 0
-          true
-        else
-          false
+      if head.nil?
+        false
+      else
+        case head <=> value
+        when 1 then left.include?(value)
+        when -1 then right.include?(value)
+        when 0 then true
+        end
       end
     end
   end

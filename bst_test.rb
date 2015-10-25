@@ -168,6 +168,35 @@ class BinarySearchTreeTest < MiniTest::Test
     assert_equal 1, tree.minimum
   end
 
+  def test_it_reports_depth_with_no_elements
+    tree = BinarySearchTree.new
+    tree.depth_of(1)
+    assert "It's empty in here!"
+  end
+  def test_it_reports_depth_with_one_element
+    tree = BinarySearchTree.new
+    tree.insert(1)
+    assert_equal 0, tree.depth_of(1)
+  end
+
+  def test_it_reports_depth_with_two_elements
+    tree = BinarySearchTree.new
+    tree.insert(1)
+    tree.insert(2)
+    assert_equal 1, tree.depth_of(2)
+  end
+  def test_it_reports_depth_with_three_levels
+    tree = BinarySearchTree.new
+    tree.insert(4)
+    tree.insert(3)
+    tree.insert(5)
+    tree.insert(6)
+    tree.insert(2)
+    tree.insert(1)
+    tree.insert(7)
+    assert_equal 3, tree.depth_of(7)
+  end
+
 end
 
 #     5 <- include?

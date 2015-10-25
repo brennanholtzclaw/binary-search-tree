@@ -79,6 +79,55 @@ class BinarySearchTree
     end
   end
 
+  def sort
+  end
+
+end
+#
+# module BinaryTree
+#   class Node
+#
+#     # named include? to parallel Array#include?
+#     def include?(v)
+#       case value <=> v
+#       when 1 then left.include?(v)
+#       when -1 then right.include?(v)
+#       when 0 then true # the current node is equal to the value
+#       end
+#     end
+#   end
+# end
+
+# def include?(value)
+#   head == value || left.include?(value) || right.include?(value)
+# end
+
+
+  # def include?(value)
+  #   if head.nil?
+  #     false
+  #   else
+  #     if head.nil?
+  #       false
+  #     else
+  #       case head <=> value
+  #       when 1 then left.include?(value)
+  #       when -1 then right.include?(value)
+  #       when 0 then true
+  #       end
+  #     end
+  #   end
+  # end
+    # if head == value
+    #   true
+    # elsif @right == value
+    #   true
+    # elsif @left == value
+    #   true
+    # else
+    #   false
+    # end
+
   #
   # def counter
   #   @counter = 0
@@ -100,76 +149,6 @@ class BinarySearchTree
   #   end
   # end
   #
-  # def depth_of(value)
-  #   counter = 0
-  #   if head.nil?
-  #     puts "It's empty in here!"
-  #   elsif head == value
-  #     0
-  #   elsif value > head
-  #     right.depth_of(value)
-  #     counter += 1
-  #   elsif value > head
-  #     left.depth_of(value)
-  #     counter += 1
-  #   else
-  #     puts "That value isn't in here"
-  #   end
-  #   counter
-  # end
-
-
-  def sort
-  end
-
-
-
-end
-  #
-  # module BinaryTree
-  #   class Node
-  #
-  #     # named include? to parallel Array#include?
-  #     def include?(v)
-  #       case value <=> v
-  #       when 1 then left.include?(v)
-  #       when -1 then right.include?(v)
-  #       when 0 then true # the current node is equal to the value
-  #       end
-  #     end
-  #   end
-  # end
-
-  # def include?(value)
-  #   head == value || left.include?(value) || right.include?(value)
-  # end
-
-
-    # def include?(value)
-    #   if head.nil?
-    #     false
-    #   else
-    #     if head.nil?
-    #       false
-    #     else
-    #       case head <=> value
-    #       when 1 then left.include?(value)
-    #       when -1 then right.include?(value)
-    #       when 0 then true
-    #       end
-    #     end
-    #   end
-    # end
-      # if head == value
-      #   true
-      # elsif @right == value
-      #   true
-      # elsif @left == value
-      #   true
-      # else
-      #   false
-      # end
-
 
 # # State 1:
 # tree 5

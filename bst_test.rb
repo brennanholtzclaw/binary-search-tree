@@ -6,17 +6,26 @@ require './bst'
 class BinarySearchTreeTest < MiniTest::Test
   attr_accessor :tree
 
-  # def test_it_starts_with_zero_elements
-  #   tree = BinarySearchTree.new
-  #   assert_equal 0, tree.count
-  # end
+  def test_it_starts_with_zero_elements
+    tree = BinarySearchTree.new
+    assert_equal 0, tree.count
+  end
 
-  #TO DO Push
-  # def test_it_pushes_an_element
-  #   tree = BinarySearchTree.new
-  #   tree.insert(1)
-  #   assert_equal 1, tree.count
-  # end
+  def test_it_inserts_an_element
+    tree = BinarySearchTree.new
+    tree.insert(1)
+    assert_equal 1, tree.count
+  end
+
+  def test_it_counts_a_larger_range
+    tree = BinarySearchTree.new
+    tree.insert(10)
+    rnga = (1..9)
+    rngb = (11..20)
+    rnga.each {|value| tree.insert(value)}
+    rngb.each {|value| tree.insert(value)}
+    assert_equal 20, tree.count
+  end
 
   def test_it_insertes_a_bigger_element_than_head_to_the_right
     tree = BinarySearchTree.new
@@ -48,6 +57,22 @@ class BinarySearchTreeTest < MiniTest::Test
     tree.insert(3)
     tree.insert(4)
     assert_equal 4, tree.left.right.head
+  end
+
+  def test_it_inserts_strings
+    tree = BinarySearchTree.new
+    tree.insert("c")
+    tree.insert("b")
+    tree.insert("d")
+    assert_equal "d", tree.right.head
+  end
+
+  def test_it_inserts_more_complex_strings
+    tree = BinarySearchTree.new
+    tree.insert("cat")
+    tree.insert("bat")
+    tree.insert("dog")
+    assert_equal "dog", tree.right.head
   end
 
   def test_it_includes_single_value
@@ -208,10 +233,17 @@ class BinarySearchTreeTest < MiniTest::Test
     assert_equal 9, tree.depth_of(19)
   end
 
-end
+  def test_it_does_not_sort_empty_tree
+    tree = BinarySearchTree.new
+    assert_equal "This is an empty tree", tree.sort
+  end
 
-#     5 <- include?
-#    / \
-#   3   6 <- Tree[3].include?(7)
-#  /   / \
-#        7 <-
+  def test_it_sorts_single_element_tree
+    tree = BinarySearchTree.new
+    tree.insert(1)
+    assert_equal [1], tree.sort
+  end
+
+
+
+end

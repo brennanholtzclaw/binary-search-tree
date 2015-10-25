@@ -1,13 +1,20 @@
-require './emptytree'
-
 class BinarySearchTree
   attr_accessor :head, :right, :left
 
-  # def initialize
-  #   @head
-  #   @right = EmptyTree.new
-  #   @left = EmptyTree.new
-  # end
+  def count
+    if head.nil?
+      0
+    elsif right.nil? && left.nil?
+      1
+    elsif left && right.nil?
+      1 + left.count
+    elsif right && left.nil?
+      1 + right.count
+    else
+      1 + left.count + right.count
+    end
+  end
+
 
   def insert(value)
     if head.nil?
@@ -79,99 +86,55 @@ class BinarySearchTree
     end
   end
 
+
   def sort
+    @sorted_array = []
+    if head.nil?
+      "This is an empty tree"
+    elsif left == true && right.nil?
+      left.sort_tree(head)
+    elsif right == true && right.nil?
+      right.sort_tree(head)
+    elsif right.nil? && left.nil?
+      head.sort_tree(head)
+    end
   end
 
-end
+
+  def sort_tree(head)
+    if right.nil? && left.nil?
+      @sorted_array << @head
+    elsif left == true && right.nil?
+      left.sort
+    elsif right == true && left.nil?
+      right.sort
+    end
+  end
+
 #
-# module BinaryTree
-#   class Node
+#   def push(node)
+#   if node.data < data
+#     add_node_to_left_link(node)
+#   elsif node.data > data
+#     add_node_to_right_link(node)
+#   else
+#     return_duplicate_node_message(node)
+#   end
+# end
+
+# def sort
+#     return [data] if no_links_exist
 #
-#     # named include? to parallel Array#include?
-#     def include?(v)
-#       case value <=> v
-#       when 1 then left.include?(v)
-#       when -1 then right.include?(v)
-#       when 0 then true # the current node is equal to the value
-#       end
+#     sorted = []
+#
+#     if only_left_link_exists
+#       sorted.push(left.sort).push(data)
+#     elsif only_right_link_exists
+#       sorted.push(data).push(right.sort)
+#     else
+#       sorted.push(left.sort).push(data).push(right.sort)
 #     end
+#
+#     sorted.flatten
 #   end
-# end
-
-# def include?(value)
-#   head == value || left.include?(value) || right.include?(value)
-# end
-
-
-  # def include?(value)
-  #   if head.nil?
-  #     false
-  #   else
-  #     if head.nil?
-  #       false
-  #     else
-  #       case head <=> value
-  #       when 1 then left.include?(value)
-  #       when -1 then right.include?(value)
-  #       when 0 then true
-  #       end
-  #     end
-  #   end
-  # end
-    # if head == value
-    #   true
-    # elsif @right == value
-    #   true
-    # elsif @left == value
-    #   true
-    # else
-    #   false
-    # end
-
-  #
-  # def counter
-  #   @counter = 0
-  # end
-  #
-  # def depth_of(value)
-  #   if head == value
-  #     @counter
-  #   elsif head.nil?
-  #     puts "It's empty in here!"
-  #   elsif head == value
-  #     0
-  #   elsif value > head
-  #     right.depth_of(value)
-  #     @counter += 1
-  #   elsif value > head
-  #     left.depth_of(value)
-  #     @counter += 1
-  #   end
-  # end
-  #
-
-# # State 1:
-# tree 5
-#
-# # State 2:
-# tree 5
-#       \
-#        7 tree.right
-#
-# # Going to State 3:
-# # tree.insert(6) -> tree.right.insert(6)
-# tree 5
-#       \
-#        7 tree.right
-
-# class BinaryNode
-#   attr_reader :value
-#   attr_accessor :left, :right
-#
-#   def initialize(input_data)
-#     @data = input_data
-#   end
-#
-#   def link
-#   end
-# end
+end

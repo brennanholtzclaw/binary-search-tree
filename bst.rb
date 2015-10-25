@@ -66,22 +66,57 @@ class BinarySearchTree
     end
   end
 
+
   def depth_of(value)
-    counter = 0
-    if head.nil?
-      puts "It's empty in here!"
-    elsif head == value
+    if head == value
       0
+    elsif head.nil?
+      puts "It's empty in here!"
     elsif value > head
-      right.depth_of(value)
-      counter += 1
+      1 + right.depth_of(value)
     elsif value > head
-      left.depth_of(value)
-      counter += 1
-    else
-      puts "That value isn't in here"
+      1 + left.depth_of(value)
     end
   end
+
+  #
+  # def counter
+  #   @counter = 0
+  # end
+  #
+  # def depth_of(value)
+  #   if head == value
+  #     @counter
+  #   elsif head.nil?
+  #     puts "It's empty in here!"
+  #   elsif head == value
+  #     0
+  #   elsif value > head
+  #     right.depth_of(value)
+  #     @counter += 1
+  #   elsif value > head
+  #     left.depth_of(value)
+  #     @counter += 1
+  #   end
+  # end
+  #
+  # def depth_of(value)
+  #   counter = 0
+  #   if head.nil?
+  #     puts "It's empty in here!"
+  #   elsif head == value
+  #     0
+  #   elsif value > head
+  #     right.depth_of(value)
+  #     counter += 1
+  #   elsif value > head
+  #     left.depth_of(value)
+  #     counter += 1
+  #   else
+  #     puts "That value isn't in here"
+  #   end
+  #   counter
+  # end
 
 
   def sort

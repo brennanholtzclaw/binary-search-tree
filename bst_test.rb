@@ -185,6 +185,7 @@ class BinarySearchTreeTest < MiniTest::Test
     tree.insert(2)
     assert_equal 1, tree.depth_of(2)
   end
+
   def test_it_reports_depth_with_three_levels
     tree = BinarySearchTree.new
     tree.insert(4)
@@ -195,6 +196,16 @@ class BinarySearchTreeTest < MiniTest::Test
     tree.insert(1)
     tree.insert(7)
     assert_equal 3, tree.depth_of(7)
+  end
+
+  def test_it_reports_depth_with_three_levels
+    tree = BinarySearchTree.new
+    tree.insert(10)
+    rnga = (1..9)
+    rngb = (11..20)
+    rnga.each {|value| tree.insert(value)}
+    rngb.each {|value| tree.insert(value)}
+    assert_equal 9, tree.depth_of(19)
   end
 
 end

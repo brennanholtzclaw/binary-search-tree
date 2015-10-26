@@ -1,5 +1,5 @@
 class BinarySearchTree
-  attr_accessor :head, :right, :left
+  attr_accessor :head, :right, :left, :sorted
 
   def count
     if head.nil?
@@ -86,22 +86,16 @@ class BinarySearchTree
   end
 
   def sort
-    @sorted_array = []
     if head.nil?
-      "This is an empty tree"
+      "This is now an empty tree"
+    elsif head && left.nil?
+      return head
     else
-      sort_tree(head)
+      while !head.nil?
+        return minimum
+        self.head = nil
+      end
     end
   end
 
-  def sort_tree(head)
-    if
-      @sorted_array = sort_tree(left)
-    end
-    @sorted_array << head
-    if self.right
-      @sorted_array = sort_tree(right)
-    end
-    @sorted_array
-  end
 end

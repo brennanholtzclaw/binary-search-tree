@@ -242,14 +242,29 @@ class BinarySearchTreeTest < MiniTest::Test
 
   def test_it_does_not_sort_empty_tree
     tree = BinarySearchTree.new
-    assert_equal "This is an empty tree", tree.sort
+    assert_equal "This is now an empty tree", tree.sort
   end
 
   def test_it_sorts_single_element_tree
     tree = BinarySearchTree.new
     tree.insert(1)
-    assert_equal [1], tree.sort
+    assert_equal 1, tree.sort
   end
+
+  def test_it_sorts_two_elements_in_a_tree
+    tree = BinarySearchTree.new
+    tree.insert(1)
+    tree.insert(0)
+    assert_equal [0, 1], tree.sort
+  end
+
+  # def test_it_sorts_three_elements_in_a_tree
+  #   tree = BinarySearchTree.new
+  #   tree.insert(1)
+  #   tree.insert(0)
+  #   tree.insert(2)
+  #   assert_equal [0, 1, 2], tree.sort
+  # end
 
   # def test_it_sorts_multiple_elements_in_tree
   #   tree = BinarySearchTree.new

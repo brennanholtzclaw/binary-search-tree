@@ -19,6 +19,8 @@ class BinarySearchTree
   def insert(value)
     if head.nil?
       self.head = value
+    elsif include?(value)
+      puts "Sorry, that value is already in here."
     elsif value > head
       if right.nil?
         tree = BinarySearchTree.new
@@ -87,28 +89,48 @@ class BinarySearchTree
   end
 
 
+  # def sort
+  #   @sorted_array = []
+  #   if head.nil?
+  #     "This is an empty tree"
+  #   elsif left == true && right.nil?
+  #     left.sort_tree(head)
+  #   elsif right == true && right.nil?
+  #     right.sort_tree(head)
+  #   elsif right.nil? && left.nil?
+  #     head.sort_tree(head)
+  #   end
+  # end
+
   def sort
     @sorted_array = []
     if head.nil?
       "This is an empty tree"
-    elsif left == true && right.nil?
-      left.sort_tree(head)
-    elsif right == true && right.nil?
-      right.sort_tree(head)
-    elsif right.nil? && left.nil?
-      head.sort_tree(head)
+    else
+      sort_tree(head)
     end
+    @sorted_array
   end
 
-
+  # def sort_tree(head)
+  #   if right.nil? && left.nil?
+  #     @sorted_array << @head
+  #   elsif left == true && right.nil?
+  #     left.sort
+  #   elsif right == true && left.nil?
+  #     right.sort
+  #   end
+  # end
+  #
   def sort_tree(head)
-    if right.nil? && left.nil?
-      @sorted_array << @head
-    elsif left == true && right.nil?
-      left.sort
-    elsif right == true && left.nil?
-      right.sort
+    if self.left
+      @sorted_array = sort_tree(left)
     end
+    @sorted_array << head
+    if self.right
+      @sorted_array = sort_tree(right)
+    end
+    @sorted_array
   end
 
 #

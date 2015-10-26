@@ -20,8 +20,8 @@ class BinarySearchTreeTest < MiniTest::Test
   def test_it_counts_a_larger_range
     tree = BinarySearchTree.new
     tree.insert(10)
-    rnga = (1..9)
-    rngb = (11..20)
+    rnga = (1..9).to_a.shuffle
+    rngb = (11..20).to_a.shuffle
     rnga.each {|value| tree.insert(value)}
     rngb.each {|value| tree.insert(value)}
     assert_equal 20, tree.count
@@ -262,7 +262,5 @@ class BinarySearchTreeTest < MiniTest::Test
   #   tree.insert(7)
   #   assert_equal [1, 2, 3, 4, 5, 6, 7], tree.sort
   # end
-
-
 
 end

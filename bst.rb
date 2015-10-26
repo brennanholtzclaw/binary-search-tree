@@ -15,12 +15,11 @@ class BinarySearchTree
     end
   end
 
-
   def insert(value)
     if head.nil?
       self.head = value
     elsif include?(value)
-      puts "Sorry, that value is already in here."
+      "Sorry, that value is already in here."
     elsif value > head
       if right.nil?
         tree = BinarySearchTree.new
@@ -39,7 +38,6 @@ class BinarySearchTree
       end
     end
   end
-
 
   def include?(value)
     if head.nil?
@@ -75,32 +73,17 @@ class BinarySearchTree
     end
   end
 
-
   def depth_of(value)
     if head == value
       0
     elsif head.nil?
-      puts "It's empty in here!"
+      "It's empty in here!"
     elsif value > head
       1 + right.depth_of(value)
     elsif value > head
       1 + left.depth_of(value)
     end
   end
-
-
-  # def sort
-  #   @sorted_array = []
-  #   if head.nil?
-  #     "This is an empty tree"
-  #   elsif left == true && right.nil?
-  #     left.sort_tree(head)
-  #   elsif right == true && right.nil?
-  #     right.sort_tree(head)
-  #   elsif right.nil? && left.nil?
-  #     head.sort_tree(head)
-  #   end
-  # end
 
   def sort
     @sorted_array = []
@@ -109,21 +92,10 @@ class BinarySearchTree
     else
       sort_tree(head)
     end
-    @sorted_array
   end
 
-  # def sort_tree(head)
-  #   if right.nil? && left.nil?
-  #     @sorted_array << @head
-  #   elsif left == true && right.nil?
-  #     left.sort
-  #   elsif right == true && left.nil?
-  #     right.sort
-  #   end
-  # end
-  #
   def sort_tree(head)
-    if self.left
+    if
       @sorted_array = sort_tree(left)
     end
     @sorted_array << head
@@ -132,31 +104,4 @@ class BinarySearchTree
     end
     @sorted_array
   end
-
-#
-#   def push(node)
-#   if node.data < data
-#     add_node_to_left_link(node)
-#   elsif node.data > data
-#     add_node_to_right_link(node)
-#   else
-#     return_duplicate_node_message(node)
-#   end
-# end
-
-# def sort
-#     return [data] if no_links_exist
-#
-#     sorted = []
-#
-#     if only_left_link_exists
-#       sorted.push(left.sort).push(data)
-#     elsif only_right_link_exists
-#       sorted.push(data).push(right.sort)
-#     else
-#       sorted.push(left.sort).push(data).push(right.sort)
-#     end
-#
-#     sorted.flatten
-#   end
 end
